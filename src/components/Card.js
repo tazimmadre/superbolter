@@ -43,7 +43,12 @@ const Card=(props)=> {
     );
   }
 
-    return <div className="ui link cards">{renderlist()}</div>;
+    return (
+      <div className="ui secondary segment">
+    <div className="ui link cards centered">{renderlist()}
+    </div>
+      </div>
+    );
 }
 const mapStateToProps = (state) => {
   console.log(state);
