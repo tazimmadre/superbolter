@@ -1,20 +1,17 @@
-import React,{useEffect,useState} from "react";
+import React,{useEffect} from "react";
 import {useHistory} from "react-router-dom";
 import { connect } from "react-redux";
 import { getData,selectuser } from "../actions";
 
 const Card=(props)=> {
   const navigate=useHistory();
-  const [data,setData]=useState([]);
     useEffect(() => {
-      props.getData(5);
-      setData(props.cards);
-      console.log(data);
+      props.getData(50);
     },[]);
   const renderlist=() =>{
     return (
-      data &&
-      data.map((x) => {
+      props.cards &&
+      props.cards.map((x) => {
         return (
           <div
             className="ui card"
