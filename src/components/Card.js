@@ -9,8 +9,7 @@ const Card=(props)=> {
       props.getData(50);
     },[]);
   const renderlist=() =>{
-    return (
-      props.cards &&
+    return       props.cards ?(
       props.cards.map((x) => {
         return (
           <div
@@ -40,7 +39,7 @@ const Card=(props)=> {
           </div>
         );
       })
-    );
+    ):(<div className="ui active centered inline loader"></div>);
   }
 
     return (
@@ -52,7 +51,7 @@ const Card=(props)=> {
 }
 const mapStateToProps = (state) => {
   console.log(state);
-  return {cards:(state.fetch.payload)};
+  return {cards:(state.fetch.payload),selecteduser:state.selecteduser};
 };
 
 export default connect(mapStateToProps, { getData,selectuser })(Card);
